@@ -12,7 +12,7 @@ function calculateWinner(squares) {
       [0, 4, 8],
       [2, 4, 6]
     ];
-    
+    console.log(squares)
     for (let i = 0; i < lines.length; i++) {
         const [a, b, c] = lines[i];
         if (squares[a] && squares[a] === squares[b] && squares[a] === squares[c]) {
@@ -20,6 +20,17 @@ function calculateWinner(squares) {
         }
     }
     return null;
+
+    // for (let i = 0; i < Math.sqrt(squares.length); i++) {
+    //     const nRow = Math.sqrt(squares.length);
+    //     if (squares[i] === squares[i + (1 * nRow)] &&  squares[i + (1 * nRow)] === squares[i + (2 * nRow)]) { // x
+    //         return squares[i];
+    //     } else if(squares[i] === squares[i+1] && squares[i+1] === squares[i+2]){
+    //         return squares[i];
+    //     }
+    // }
+    // return null;
+
 }
   
 function isBoardFilled(squares) {
