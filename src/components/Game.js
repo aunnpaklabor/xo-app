@@ -31,7 +31,7 @@ function calculateWinner(squares) {
     // }
     // return null;
 }
-  
+
 function isBoardFilled(squares) {
     for (let i = 0; i < squares.length; i++) {
         if (squares[i] === null) {
@@ -185,5 +185,5 @@ export default class Game extends Component {
             </div>
           </div>
         );
-      }
+    }
 }
