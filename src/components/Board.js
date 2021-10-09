@@ -28,7 +28,7 @@ export default class Board extends Component {
 
     render() {
         return (
-          <div>{this.createBoard(4, 4)}</div>
+          <div>{this.createBoard(3, 3)}</div>
         );
       }
 }
