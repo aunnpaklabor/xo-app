@@ -67,7 +67,7 @@ render() {
     );
   }
 ```
-ใน Component นี้ จะทำการสร้างตารางโดยเป็น Array 3x3 และ `renderSquare()` ใช้อัพเดทช่องสี่เหลี่ยมที่ถูกเติมแล้ว
+ใน Component นี้ จะทำการสร้างตาราง และ `renderSquare()` ใช้อัพเดทช่องสี่เหลี่ยมที่ถูกเติมแล้ว
 
 ### Game.js
 ใน component นี้จะเป็นการรวมฟังก์ชั่นหลักๆของเกมเช่น bot, history play
@@ -174,5 +174,9 @@ render() {
 ใช้ `map` method เพื่อ map หา history move
 
 ## Minimax Algorithm
-Algorithm ใช้ในการพัฒนาตัวเกมนี้คือ Minimax Algorithm
-[![image](https://github.com/aunnpaklabor/xo-app/blob/master/1.png)]
+
+###Algorithm ใช้ในการพัฒนาตัวเกมนี้คือ Minimax Algorithm
+
+
+โดยตัว Algorithm นี้ Bot จะสามารถคาดเดาหรือดูสถานการณ์ล่วงหน้าว่าต้องเล่นแบบไหนเพื่อให้จบเกมได้ สมมติว่าตอนนี้หน้ากระดานเป็นแบบนี้ ซึ่งตาต่อไปเป็นของ Player O  
+![image](https://github.com/aunnpaklabor/xo-app/blob/master/1.png)
