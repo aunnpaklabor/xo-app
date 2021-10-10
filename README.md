@@ -175,4 +175,4 @@ render() {
 
 ## Minimax Algorithm
 Algorithm ใช้ในการพัฒนาตัวเกมนี้คือ Minimax Algorithm
-[![image]https://github.com/aunnpaklabor/xo-app/blob/master/1.png]
+[![image](https://github.com/aunnpaklabor/xo-app/blob/master/1.png)]
