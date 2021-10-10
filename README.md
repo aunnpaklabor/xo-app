@@ -2,9 +2,11 @@
 
 ## Setup
 
-#### ต้องการ
+#### ต้องการ:
 
 - [Node.js](https://nodejs.org):
+
+Clone Repository โดย run command ใน Terminal ดังนี้
 
 ```bash
 git clone https://github.com/aunnpaklabor/xo-app.git
@@ -16,4 +18,54 @@ git clone https://github.com/aunnpaklabor/xo-app.git
 $ cd xo-app
 $ npm install
 $ npm start
+```
+
+## การออกแบบโปรแกรม
+
+เว็บเกมนี้พัฒนาด้วย React และ Javascript โดยตัวโปรแกรมจะมี 3 ส่วนประกอบหลักๆ คือ `Square` `Board` `Game`
+
+### Square.js
+```javascript
+export default function Square(props) {
+    return (
+        <button class="square" onClick={props.onClick}>
+            {props.value}
+        </button>
+    )
+}
+```
+ทำหน้าที่ส่งข้อมูลผ่าน props จากนั้นจะเรียกใช้ใน `Board`
+
+
+### Board.js
+```javascript
+    createBoard (row, col) {
+      const board = [];
+      let boardCounter =0;
+    
+      for (let i = 0; i < row; i+= 1) {
+          const column = []; 
+          for (let j = 0; j < col; j += 1) {
+            column.push(this.renderSquare(boardCounter++))
+          }
+          board.push(<div key={i} className="board-row">{column}</div>)
+      }
+      return board;
+    }
+  
+    renderSquare(i) {
+        return (
+            <Square
+            value={this.props.squares[i]}
+            onClick={() => this.props.onClick(i)}
+            />
+        );
+    }
+
+    render() {
+        return (
+          <div>{this.createBoard(3, 3)}</div>
+        );
+      }
+}
 ```
