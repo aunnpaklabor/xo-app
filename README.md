@@ -11,13 +11,15 @@
 ```bash
 git clone https://github.com/aunnpaklabor/xo-app.git
 ```
-จากนั้น Run commands ใน Terminal ดังนี้
+จากนั้น Run commands ใน Terminal
 
 ```bash
 $ cd xo-app
 $ npm install
 $ npm start
 ```
+
+เข้าบราวเซอร์แล้วเปิด Url -> [http://localhost:3000](http://localhost:3000)
 
 ## การออกแบบโปรแกรม
 
