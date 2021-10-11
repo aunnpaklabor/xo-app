@@ -70,7 +70,7 @@ render() {
 ใน Component นี้ จะทำการสร้างตาราง และ `renderSquare()` ใช้อัพเดทช่องสี่เหลี่ยมที่ถูกเติมแล้ว
 
 ### Game.js
-ใน component นี้จะเป็นการรวมฟังก์ชั่นหลักๆของเกมเช่น bot, history play
+ในส่วนนี้จะเป็นการรวมฟังก์ชันหลักๆของเกมเช่น ฟังก์ชันที่ใช้คลิกกระดานสี่เหลี่ยมของเกม, bot, history play
 
 #### calculateWinner
 ```javascript
@@ -93,7 +93,11 @@ function calculateWinner(squares) {
     }
     return null;
 ```
-กำหนดให้ Array ของ 9 Squares นี้ เพิ่อใช้ในการคำนวณหาผู้ชนะเกม
+
+กำหนดให้ Array ของ 9 Squares นี้ เพิ่อใช้ในการคำนวณหาผู้ชนะเกม  
+
+#### findBestSquare
+
 ```javascript
 function findBestSquare(squares, player) { 
     const opponent = player === 'X' ? 'O' : 'X';
@@ -138,40 +142,6 @@ function findBestSquare(squares, player) {
 }
 ```
 Algorithm ของ Bot ใช้เล่นกับผู้เล่น
-```javascript
-render() {
-
-        const moves = history.map((step, move) => {
-            const desc = move ?
-                'Go to move #' + move :
-                'Go to game start';
-            return (
-                <li key={move}>
-                    <button onClick={() => this.jumpTo(move)}>{desc}</button>
-                </li>
-            );
-        });
-    
-        return (
-            <div className="game">
-                <div className="game-board">
-                    <Board
-                        squares={current.squares}
-                        onClick={i => this.handleClick(i)}
-                    />
-                </div>
-            <div className="game-info">
-                <div>{status}</div>
-                <button className="button" onClick={() => this.reset()}>
-                    New game
-                </button>
-                <ol>{moves}</ol>
-            </div>
-          </div>
-        );
-    }
-```
-ใช้ `map` method เพื่อ map หา history move
 
 ## Minimax Algorithm
 
@@ -190,6 +160,14 @@ render() {
 จะเห็นได้ชัดว่าบางตัวเลือกในการเดินต่อไปสามารถนำไปสู่ชัยชนะของ Player O ได้เลย ซึ่งบางรูปแบบก็สามารถนำไปสู่ เสมอ หรือ แพ้ ได้เหมือนกัน ดังนั้นเราจะคำนวณคะแนนโดยการถ้าชนะ +1, เสมอ +0 และถ้าแพ้ -1 ตามรูปนี้
 
 ![image](https://github.com/aunnpaklabor/xo-app/blob/master/2_game_tree.png)
+
+ถ้า Player O ต้องการเลือกเส้นทางที่จะจบเกมได้คะแนนสูงสุดและในทางกลับกัน Player X ต้องการเลือกเส้นทางที่จะจบเกมด้วยคะแนนต่ำเพื่อทำให้ Player O แพ้ ซึ่งเมื่อถึงตาของ Player O ต้องเลือกการเดินที่ maximize คะแนนได้มากที่สุด และ Player X เลือกการเดินที่ minimize คะแนนให้น้อยที่สุด นี้ทำให้ตัวผู้เล่นนั้นสามารถ backtracking สำหรับการหาคะแนนของทุกรูปแบบการเดินดังนี้
+
+![image](https://github.com/aunnpaklabor/xo-app/blob/master/3_game_tree.png)
+
+เราจะเห็นว่าคะแนนสำหรับการเดินที่เป็นไปได้ 3 รูปแบบของ Player O จากซ้ายไปขวาคือ 0, +1, -1 เมื่อเป็นฝั่ง maximize player ตัว Player O ควรเลือกการเดิน +1 คะแนนเพื่อนำไปสู่ชัยชนะโดยทันที
+
+
 
 
 
